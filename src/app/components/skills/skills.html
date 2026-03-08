@@ -1,0 +1,83 @@
+<section id="skills" class="skills section-padding">
+  <div class="container">
+    <div class="section-header text-center fade-in">
+      <h2 class="heading-secondary">My <span class="text-blue">Skills</span></h2>
+      <p class="section-subtitle">Crafting words that resonate, stories that inspire</p>
+    </div>
+
+    <div class="skills-grid">
+      <div 
+        *ngFor="let category of skillCategories; let i = index" 
+        class="skill-category slide-in-up"
+        [style.animation-delay.ms]="i * 200">
+        
+        <div class="category-header">
+          <div class="category-icon">{{ category.icon }}</div>
+          <h3 class="category-title">{{ category.title }}</h3>
+        </div>
+
+        <div class="skills-list">
+          <div 
+            *ngFor="let skill of category.skills" 
+            class="skill-item"
+            [attr.data-skill]="skill.name">
+            
+            <div class="skill-info">
+              <div class="skill-header">
+                <span class="skill-icon">{{ skill.icon }}</span>
+                <span class="skill-name">{{ skill.name }}</span>
+                <span class="skill-level">{{ skill.level }}%</span>
+              </div>
+              <p class="skill-description">{{ skill.description }}</p>
+            </div>
+
+            <div class="skill-progress" [attr.data-skill]="skill.name">
+              <div 
+                class="skill-bar"
+                [style.width]="getSkillWidth(skill)"
+                [style.background-color]="getSkillColor(skill.category)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills Summary -->
+    <div class="skills-summary fade-in">
+      <div class="summary-card">
+        <h3>Why Choose Me?</h3>
+        <div class="summary-points">
+          <div class="point">
+            <span class="point-icon">🎯</span>
+            <div class="point-content">
+              <h4>Versatile Writing</h4>
+              <p>From heartfelt lyrics to compelling brand stories</p>
+            </div>
+          </div>
+          <div class="point">
+            <span class="point-icon">⚡</span>
+            <div class="point-content">
+              <h4>Quick Turnaround</h4>
+              <p>Efficient delivery without compromising quality</p>
+            </div>
+          </div>
+          <div class="point">
+            <span class="point-icon">🤝</span>
+            <div class="point-content">
+              <h4>Collaborative Approach</h4>
+              <p>Working closely to bring your vision to life</p>
+            </div>
+          </div>
+          <div class="point">
+            <span class="point-icon">🎨</span>
+            <div class="point-content">
+              <h4>Creative Innovation</h4>
+              <p>Fresh perspectives and unique storytelling</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,72 @@
+<footer class="footer">
+  <div class="footer-content container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <h3 class="brand-name">Nire</h3>
+        <p class="brand-tagline">Lyricist & Poet</p>
+        <p class="brand-description">
+          Crafting emotions into words, weaving stories through verses, 
+          and painting life with the colors of poetry.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="links-list">
+          <li *ngFor="let link of quickLinks">
+            <a (click)="scrollToSection(link.href)" class="footer-link">
+              {{ link.name }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h4 class="footer-title">Connect With Me</h4>
+        <div class="social-links">
+          <a 
+            *ngFor="let social of socialLinks" 
+            [href]="social.href" 
+            class="social-link"
+            [title]="social.name"
+            target="_blank">
+            <img [src]="social.icon" [alt]="social.name" class="social-icon-img" *ngIf="social.name !== 'Email'">
+            <span class="social-icon" *ngIf="social.name === 'Email'">{{ social.icon }}</span>
+          </a>
+        </div>
+        <p class="social-text">
+          Follow my journey and stay updated with my latest works
+        </p>
+      </div>
+
+      <div class="footer-contact">
+        <h4 class="footer-title">Let's Collaborate</h4>
+        <p class="contact-text">
+          Ready to bring your vision to life through words? 
+          Let's create something beautiful together.
+        </p>
+        <a href="mailto:nire0110@gmail.com" class="contact-email">
+          nire0110@gmail.com
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-bottom">
+      <div class="footer-copyright">
+        <p>&copy; {{ currentYear }} Nire. All rights reserved.</p>
+      </div>
+
+      <div class="footer-scroll">
+        <button class="scroll-top-btn" (click)="scrollToTop()" title="Back to top">
+          <span class="scroll-icon">↑</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-background">
+    <div class="bg-pattern"></div>
+  </div>
+</footer>

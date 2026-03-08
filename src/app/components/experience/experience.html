@@ -1,0 +1,113 @@
+<section id="experience" class="experience section-padding">
+  <div class="container">
+    <div class="section-header text-center fade-in">
+      <h2 class="heading-secondary">My <span class="text-blue">Journey</span></h2>
+      <p class="section-subtitle">From passion to profession - the story of creative evolution</p>
+    </div>
+
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+      
+      <div 
+        *ngFor="let exp of experiences; let i = index" 
+        class="timeline-item"
+        [class.visible]="isVisible(exp.id)"
+        [class.active]="activeExperience === exp.id"
+        [class.left]="i % 2 === 0"
+        [class.right]="i % 2 === 1"
+        [attr.data-experience-id]="exp.id"
+        (click)="toggleExperience(exp.id)">
+        
+        <div class="timeline-marker" [style.background-color]="exp.color">
+          <span class="marker-icon">{{ exp.icon }}</span>
+          <div class="marker-pulse" [style.background-color]="exp.color"></div>
+        </div>
+
+        <div class="timeline-content">
+          <div class="content-header">
+            <div class="experience-meta">
+              <span class="experience-type" [style.background-color]="exp.color">
+                {{ getTypeIcon(exp.type) }} {{ exp.type | titlecase }}
+              </span>
+              <span class="experience-period">{{ exp.period }}</span>
+            </div>
+            
+            <h3 class="experience-title">{{ exp.title }}</h3>
+            <div class="experience-company">
+              <span class="company-name">{{ exp.company }}</span>
+              <span class="company-location">📍 {{ exp.location }}</span>
+            </div>
+          </div>
+
+          <div class="content-body">
+            <p class="experience-description">{{ exp.description }}</p>
+            
+            <div class="experience-details" [class.expanded]="activeExperience === exp.id">
+              <div class="highlights">
+                <h4>Key Achievements</h4>
+                <ul>
+                  <li *ngFor="let highlight of exp.highlights">{{ highlight }}</li>
+                </ul>
+              </div>
+
+              <div class="skills-used">
+                <h4>Skills & Technologies</h4>
+                <div class="skill-tags">
+                  <span 
+                    *ngFor="let skill of exp.skills" 
+                    class="skill-tag"
+                    [style.border-color]="exp.color">
+                    {{ skill }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <button 
+              class="expand-btn"
+              [style.color]="exp.color"
+              (click)="$event.stopPropagation(); toggleExperience(exp.id)">
+              {{ activeExperience === exp.id ? 'Show Less' : 'Learn More' }}
+              <span class="expand-icon" [class.rotated]="activeExperience === exp.id">▼</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Career Stats -->
+    <div class="career-stats fade-in">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Songs Written</div>
+          <div class="stat-icon">🎵</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100+</div>
+          <div class="stat-label">Poems Created</div>
+          <div class="stat-icon">📝</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Collaborations</div>
+          <div class="stat-icon">🤝</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Years Experience</div>
+          <div class="stat-icon">⏰</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="experience-cta fade-in">
+      <div class="cta-content">
+        <h3>Ready to Start Your Project?</h3>
+        <p>Let's collaborate and create something amazing together</p>
+        <a href="#contact" class="btn-primary">Get In Touch</a>
+      </div>
+    </div>
+  </div>
+</section>

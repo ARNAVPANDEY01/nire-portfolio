@@ -1,0 +1,61 @@
+<section id="home" class="hero" #heroSection>
+  <div class="hero-background">
+    <div class="parallax-element" data-speed="0.3"></div>
+    <div class="floating-elements">
+      <div class="floating-quote">"</div>
+      <div class="floating-pen">✒</div>
+      <div class="floating-star">✦</div>
+    </div>
+  </div>
+
+  <div class="hero-content container">
+    <div class="hero-text fade-in">
+      <div class="hero-greeting">
+        <span class="greeting-text">Hello, I'm</span>
+      </div>
+      
+      <h1 class="hero-name">
+        <span class="name-primary" style="color: var(--primary-blue);">Nire</span>
+      </h1>
+      
+      <div class="hero-title">
+        <span class="title-prefix">A passionate</span>
+        <span class="title-dynamic" [style.color]="'var(--primary-blue)'">{{ currentWord }}</span>
+      </div>
+      
+      <p class="hero-description">
+        Crafting emotions into words, weaving stories through verses, and painting life with the colors of poetry. 
+        From heartfelt shayari to compelling song lyrics, I bring stories to life through the power of language.
+      </p>
+      
+      <div class="hero-actions">
+        <button class="btn-primary" (click)="scrollToWorks()">
+          Explore My Works
+          <span class="btn-arrow">→</span>
+        </button>
+        <button class="btn-secondary" (click)="scrollToContact()">
+          Get In Touch
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-visual slide-in-right">
+      <div class="visual-container">
+        <div class="profile-image">
+          <img src="images/WhatsApp Image 2026-01-10 at 1.09.34 PM.jpeg" alt="Nire - Lyricist & Poet" class="profile-photo">
+        </div>
+        
+        <div class="writing-elements">
+          <div class="ink-drop"></div>
+          <div class="paper-texture"></div>
+          <div class="golden-accent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator">
+    <div class="scroll-line"></div>
+    <span class="scroll-text">Scroll to explore</span>
+  </div>
+</section>

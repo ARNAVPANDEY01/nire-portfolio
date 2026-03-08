@@ -1,0 +1,126 @@
+<section id="works" class="works section-padding">
+  <div class="container">
+    <div class="section-header text-center fade-in">
+      <h2 class="heading-secondary">My <span class="text-blue">Works</span></h2>
+      <p class="section-subtitle">Creative expressions through music and poetry</p>
+    </div>
+
+    <!-- Animated Featured Works -->
+    <div class="animated-showcase">
+      <div class="showcase-container">
+        <div 
+          *ngFor="let project of projects; let i = index" 
+          class="showcase-item"
+          [class.active]="i === currentImageIndex"
+          (click)="openProjectModal(project)">
+          <div class="showcase-image">
+            <img [src]="project.image" [alt]="project.title" loading="lazy">
+            <div class="showcase-overlay">
+              <div class="overlay-content">
+                <h3 class="project-title">{{ project.title }}</h3>
+                <p class="project-description">{{ project.description }}</p>
+                <div class="project-tags">
+                  <span *ngFor="let tag of project.tags" class="tag">{{ tag }}</span>
+                </div>
+                <a [href]="project.video" target="_blank" class="play-btn">
+                  ▶️ Watch Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Navigation Dots -->
+      <div class="showcase-dots">
+        <button 
+          *ngFor="let project of projects; let i = index"
+          class="dot"
+          [class.active]="i === currentImageIndex"
+          (click)="setCurrentImage(i)">
+        </button>
+      </div>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="filter-section slide-in-up">
+      <h3>Browse by Category</h3>
+      <div class="filter-buttons">
+        <button 
+          *ngFor="let category of categories"
+          class="filter-btn"
+          [class.active]="selectedCategory === category"
+          (click)="filterByCategory(category)">
+          <span class="filter-icon">{{ getCategoryIcon(category) }}</span>
+          {{ category }}
+        </button>
+      </div>
+    </div>
+
+    <!-- All Projects Grid -->
+    <div class="projects-section">
+      <h3 class="section-title">All Works</h3>
+      <div class="projects-grid">
+        <div 
+          *ngFor="let project of filteredProjects" 
+          class="project-card"
+          (click)="openProjectModal(project)">
+          <div class="card-image">
+            <img [src]="project.image" [alt]="project.title" loading="lazy">
+            <div class="card-overlay">
+              <span class="card-category">{{ project.category }}</span>
+              <div class="card-actions">
+                <button class="action-btn" *ngIf="project.video">
+                  <span>▶️</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-year">{{ project.year }}</span>
+              <span class="card-client">{{ project.client }}</span>
+            </div>
+            <h4 class="card-title">{{ project.title }}</h4>
+            <p class="card-description">{{ project.description }}</p>
+            <div class="card-tags">
+              <span *ngFor="let tag of project.tags" class="tag">{{ tag }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Modal -->
+  <div class="project-modal" [class.open]="isModalOpen" (click)="closeProjectModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()" *ngIf="selectedProject">
+      <button class="modal-close" (click)="closeProjectModal()">×</button>
+      
+      <div class="modal-header">
+        <img [src]="selectedProject.image" [alt]="selectedProject.title" class="modal-image">
+        <div class="modal-info">
+          <span class="modal-category">{{ selectedProject.category }}</span>
+          <h3 class="modal-title">{{ selectedProject.title }}</h3>
+          <p class="modal-client">{{ selectedProject.description }}</p>
+          <p class="modal-year">Year: {{ selectedProject.year }}</p>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-tags">
+          <span *ngFor="let tag of selectedProject.tags" class="modal-tag">{{ tag }}</span>
+        </div>
+
+        <div class="modal-actions">
+          <a *ngIf="selectedProject.video" [href]="selectedProject.video" target="_blank" class="modal-btn primary">
+            ▶️ Watch Video
+          </a>
+          <a href="#contact" class="modal-btn tertiary" (click)="closeProjectModal()">
+            💬 Discuss Similar Project
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

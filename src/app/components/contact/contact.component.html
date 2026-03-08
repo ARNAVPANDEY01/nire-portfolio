@@ -1,0 +1,171 @@
+<section id="contact" class="contact section-padding">
+  <div class="container">
+    <div class="section-header text-center fade-in">
+      <h2 class="heading-secondary">Let's <span class="text-blue">Connect</span></h2>
+      <p class="section-subtitle">Ready to bring your vision to life through words</p>
+    </div>
+
+    <div class="contact-content">
+      <div class="contact-info slide-in-left">
+        <div class="info-card">
+          <h3 class="heading-tertiary">Get In Touch</h3>
+          <p class="body-large">
+            Whether you need compelling lyrics for your next song, heartfelt poetry for a special occasion, 
+            or want to collaborate on a creative project, I'd love to hear from you.
+          </p>
+
+          <div class="contact-details">
+            <div class="detail-item">
+              <div class="detail-icon">📞</div>
+              <div class="detail-content">
+                <h4>Phone</h4>
+                <p>+91 7667100932</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-icon">✉️</div>
+              <div class="detail-content">
+                <h4>Email</h4>
+                <p>nire0110@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-icon">⏰</div>
+              <div class="detail-content">
+                <h4>Response Time</h4>
+                <p>Usually within 24 hours</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-icon">💡</div>
+              <div class="detail-content">
+                <h4>Project Types</h4>
+                <p>Lyrics, Poetry, Shayari, Plays & More</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <h4>Connect on Social</h4>
+            <div class="social-grid">
+              <a 
+                *ngFor="let social of socialLinks" 
+                [href]="social.link" 
+                class="social-link"
+                [style.--social-color]="social.color"
+                target="_blank">
+                <img [src]="social.icon" [alt]="social.name" class="social-icon-img" *ngIf="social.name !== 'Email'">
+                <span class="social-icon" *ngIf="social.name === 'Email'">{{ social.icon }}</span>
+                <span class="social-name">{{ social.name }}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form slide-in-right">
+        <form (ngSubmit)="onSubmit()" #contactFormRef="ngForm" class="form-container">
+          <div class="form-header">
+            <h3 class="heading-tertiary">Start a Conversation</h3>
+            <p>Tell me about your project and let's create something beautiful together.</p>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name" class="form-label">Your Name *</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name"
+                [(ngModel)]="contactForm.name"
+                class="form-input"
+                placeholder="Enter your full name"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address *</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email"
+                [(ngModel)]="contactForm.email"
+                class="form-input"
+                placeholder="your@email.com"
+                required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="projectType" class="form-label">Project Type</label>
+            <select 
+              id="projectType" 
+              name="projectType"
+              [(ngModel)]="contactForm.projectType"
+              class="form-select">
+              <option value="">Select project type (optional)</option>
+              <option *ngFor="let type of projectTypes" [value]="type.value">
+                {{ type.label }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject *</label>
+            <input 
+              type="text" 
+              id="subject" 
+              name="subject"
+              [(ngModel)]="contactForm.subject"
+              class="form-input"
+              placeholder="What's this about?"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Your Message *</label>
+            <textarea 
+              id="message" 
+              name="message"
+              [(ngModel)]="contactForm.message"
+              class="form-textarea"
+              placeholder="Tell me about your project, vision, or any specific requirements..."
+              rows="6"
+              required></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button 
+              type="submit" 
+              class="btn-primary form-submit"
+              [disabled]="isSubmitting || !contactFormRef.form.valid">
+              <span *ngIf="!isSubmitting && !isSubmitted">Send Message</span>
+              <span *ngIf="isSubmitting">Sending...</span>
+              <span *ngIf="isSubmitted">Message Sent! ✓</span>
+            </button>
+          </div>
+
+          <div class="form-note">
+            <p>* Required fields. Your information is kept private and secure.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="contact-cta fade-in">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h3>Prefer a Quick Chat?</h3>
+          <p>Sometimes the best collaborations start with a simple conversation. 
+             Feel free to reach out directly for a friendly discussion about your project.</p>
+          <a href="mailto:nire0110@gmail.com" class="btn-secondary">
+            Email Me Directly
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

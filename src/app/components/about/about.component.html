@@ -1,0 +1,82 @@
+<section id="about" class="about section-padding">
+  <div class="container">
+    <div class="section-header text-center fade-in">
+      <h2 class="heading-secondary">About <span class="text-blue">Nire</span></h2>
+      <p class="section-subtitle">The story behind the words</p>
+    </div>
+
+    <div class="about-content">
+      <div class="about-text slide-in-left">
+        <div class="text-block">
+          <h3 class="heading-tertiary">Crafting Stories Through Words</h3>
+          <p class="body-large">
+            I am Nire, a passionate lyricist and poet who believes in the transformative power of words. 
+            My journey began with a simple love for language and has evolved into a deep commitment to 
+            creating meaningful, emotional connections through verse.
+          </p>
+          
+          <p class="body-regular">
+            From the rhythmic beauty of traditional shayari to contemporary song lyrics that resonate 
+            with modern audiences, I explore the full spectrum of poetic expression. Each piece I create 
+            is a window into the human experience, capturing emotions, stories, and moments that define us.
+          </p>
+          
+          <p class="body-regular">
+            My work spans across various forms of creative writing, including theatrical plays that 
+            bring characters to life on stage. I believe that every word has the power to inspire, 
+            heal, and transform, and I strive to harness that power in everything I create.
+          </p>
+        </div>
+
+        <div class="about-stats">
+          <div class="stats-grid">
+            <div class="stat-item" *ngFor="let stat of stats; let i = index" 
+                 [style.animation-delay.ms]="i * 100">
+              <div class="stat-number">{{ stat.number }}</div>
+              <div class="stat-label">{{ stat.label }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-skills slide-in-right">
+        <h3 class="heading-tertiary">My Expertise</h3>
+        <div class="skills-list">
+          <div class="skill-item" *ngFor="let skill of skills; let i = index">
+            <div class="skill-header">
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-percentage">{{ skill.level }}%</span>
+            </div>
+            <div class="skill-description">{{ skill.description }}</div>
+            <div class="skill-bar">
+              <div class="skill-progress" [attr.data-level]="skill.level"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="expertise-highlight">
+          <div class="highlight-card">
+            <div class="highlight-icon">✍️</div>
+            <div class="highlight-content">
+              <h4>Signature Style</h4>
+              <p>Blending traditional poetic forms with contemporary themes to create timeless pieces that speak to the heart.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-philosophy fade-in">
+      <div class="philosophy-card">
+        <div class="philosophy-quote">
+          <div class="quote-mark">"</div>
+          <p class="text-literary">
+            Poetry is not just about words; it's about the spaces between them, 
+            the silence that speaks, and the emotions that dance in the rhythm of language.
+          </p>
+          <div class="quote-author">- Nire</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

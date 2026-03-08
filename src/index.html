@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Nire - Lyricist & Poet | Premium Writing Services</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Nire - Professional lyricist and poet specializing in song lyrics, poetry, shayari, and creative writing. Bringing emotions to life through the power of words.">
+  <meta name="keywords" content="lyricist, poet, songwriter, shayari, poetry, creative writing, lyrics, verses, wordsmith">
+  <meta name="author" content="Nire">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Nire - Lyricist & Poet">
+  <meta property="og:description" content="Professional lyricist and poet crafting emotions into words through song lyrics, poetry, and creative writing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nire-portfolio.com">
+  <meta property="og:image" content="/assets/og-image.jpg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nire - Lyricist & Poet">
+  <meta name="twitter:description" content="Professional lyricist and poet crafting emotions into words through song lyrics, poetry, and creative writing.">
+  <meta name="twitter:image" content="/assets/twitter-image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  <!-- Google Fonts - Premium Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#d4af37">
+  <meta name="msapplication-TileColor" content="#d4af37">
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" as="style">
+  
+  <!-- Performance Optimization -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nire",
+    "jobTitle": "Lyricist and Poet",
+    "description": "Professional lyricist and poet specializing in song lyrics, poetry, shayari, and creative writing",
+    "url": "https://nire-portfolio.com",
+    "sameAs": [
+      "https://instagram.com/nire",
+      "https://twitter.com/nire",
+      "https://linkedin.com/in/nire"
+    ],
+    "knowsAbout": ["Lyric Writing", "Poetry", "Shayari", "Creative Writing", "Playwriting"],
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Lyricist and Poet"
+    }
+  }
+  </script>
+</head>
+<body>
+  <app-root></app-root>
+  
+  <!-- Loading Animation -->
+  <style>
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #fefcf7 0%, #f8f6f0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out;
+    }
+    
+    .loading-content {
+      text-align: center;
+    }
+    
+    .loading-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: #d4af37;
+      margin-bottom: 1rem;
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    .loading-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #8a8a8a;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+    
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #e8e6e1;
+      border-top: 3px solid #d4af37;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 2rem auto 0;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+  
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-logo">Nire</div>
+      <div class="loading-text">Lyricist & Poet</div>
+      <div class="loading-spinner"></div>
+    </div>
+  </div>
+  
+  <script>
+    // Hide loading screen when page is loaded
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        if (loadingScreen) {
+          loadingScreen.style.opacity = '0';
+          setTimeout(function() {
+            loadingScreen.style.display = 'none';
+          }, 500);
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
